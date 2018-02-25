@@ -27,6 +27,7 @@ import java.util.Locale;
 public class ListActivity extends AppCompatActivity implements IListView, View.OnClickListener {
 
     private static final String EXTRA_BUDGET_ITEM = "EXTRA_BUDGET_ITEM";
+    private static final String EXTRA_LIST_TYPE = "EXTRA_LIST_TYPE";
 
     private List<BudgetItem> itemList;
     private LayoutInflater layoutInflater;
@@ -55,6 +56,7 @@ public class ListActivity extends AppCompatActivity implements IListView, View.O
     public void startItemEditActivity(BudgetItem item, View viewRoot) {
         Intent i = new Intent(this, EditItemActivity.class);
         i.putExtra(EXTRA_BUDGET_ITEM, item);
+        i.putExtra(EXTRA_LIST_TYPE, listType);
 
         startActivity(i);
     }
