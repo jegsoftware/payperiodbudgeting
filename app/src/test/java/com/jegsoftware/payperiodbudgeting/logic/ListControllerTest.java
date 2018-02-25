@@ -7,7 +7,7 @@ import android.view.View;
 import com.jegsoftware.payperiodbudgeting.data.BudgetItem;
 import com.jegsoftware.payperiodbudgeting.data.IBudgetItemListData;
 import com.jegsoftware.payperiodbudgeting.data.ItemType;
-import com.jegsoftware.payperiodbudgeting.view.IView;
+import com.jegsoftware.payperiodbudgeting.view.IListView;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,10 +26,10 @@ import java.util.ArrayList;
 public class ListControllerTest {
 
     @Mock
-    IBudgetItemListData budgetItemData;
+    IBudgetItemListData budgetItemListData;
 
     @Mock
-    IView view;
+    IListView view;
 
     @Mock
     View viewRoot;
@@ -70,45 +70,45 @@ public class ListControllerTest {
 
         plannedItems.add(PLANNED_ITEM);
 
-        Mockito.when(budgetItemData.getItemsByType(ItemType.PLANNED_EXPENSE))
+        Mockito.when(budgetItemListData.getItemsByType(ItemType.PLANNED_EXPENSE))
                 .thenReturn(plannedItems);
 
         actualItems.add(ACTUAL_ITEM);
 
-        Mockito.when(budgetItemData.getItemsByType(ItemType.ACTUAL_EXPENSE))
+        Mockito.when(budgetItemListData.getItemsByType(ItemType.ACTUAL_EXPENSE))
                 .thenReturn(actualItems);
 
         deposits.add(DEPOSIT);
 
-        Mockito.when(budgetItemData.getItemsByType(ItemType.DEPOSIT))
+        Mockito.when(budgetItemListData.getItemsByType(ItemType.DEPOSIT))
                 .thenReturn(deposits);
 
     }
 
     @Test
     public void getsPlannedItems() {
-        listController = new ListController(budgetItemData, view, ItemType.PLANNED_EXPENSE);
+        listController = new ListController(budgetItemListData, view, ItemType.PLANNED_EXPENSE);
 
         Mockito.verify(view).setupListActivity(plannedItems);
     }
 
     @Test
     public void getsActualItems() {
-        listController = new ListController(budgetItemData, view, ItemType.ACTUAL_EXPENSE);
+        listController = new ListController(budgetItemListData, view, ItemType.ACTUAL_EXPENSE);
 
         Mockito.verify(view).setupListActivity(actualItems);
     }
 
     @Test
     public void getsDeposits() {
-        listController = new ListController(budgetItemData, view, ItemType.DEPOSIT);
+        listController = new ListController(budgetItemListData, view, ItemType.DEPOSIT);
 
         Mockito.verify(view).setupListActivity(deposits);
     }
 
     @Test
     public void onListItemClicked() {
-        listController = new ListController(budgetItemData, view, ItemType.PLANNED_EXPENSE);
+        listController = new ListController(budgetItemListData, view, ItemType.PLANNED_EXPENSE);
         listController.onListItemClick(PLANNED_ITEM, viewRoot);
 
         Mockito.verify(view).startItemEditActivity(PLANNED_ITEM, viewRoot);
@@ -116,7 +116,7 @@ public class ListControllerTest {
 
     @Test
     public void onAddItemClicked() {
-        listController = new ListController(budgetItemData, view, ItemType.PLANNED_EXPENSE);
+        listController = new ListController(budgetItemListData, view, ItemType.PLANNED_EXPENSE);
         listController.onAddItemClicked(viewRoot);
 
         Mockito.verify(view).startItemEditActivity(null, viewRoot);

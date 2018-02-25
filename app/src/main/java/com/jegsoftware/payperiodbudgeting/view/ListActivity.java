@@ -24,7 +24,7 @@ import com.jegsoftware.payperiodbudgeting.logic.ListController;
 import java.util.List;
 import java.util.Locale;
 
-public class ListActivity extends AppCompatActivity implements IView, View.OnClickListener {
+public class ListActivity extends AppCompatActivity implements IListView, View.OnClickListener {
 
     private static final String EXTRA_BUDGET_ITEM = "EXTRA_BUDGET_ITEM";
 

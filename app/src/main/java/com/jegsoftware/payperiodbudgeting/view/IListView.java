@@ -10,7 +10,7 @@ import java.util.List;
  * Created by jonathon on 2/6/18.
  */
 
-public interface IView {
+public interface IListView {
 
     void startItemEditActivity(BudgetItem item, View viewRoot);
 

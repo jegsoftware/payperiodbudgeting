@@ -5,7 +5,7 @@ import android.view.View;
 import com.jegsoftware.payperiodbudgeting.data.BudgetItem;
 import com.jegsoftware.payperiodbudgeting.data.IBudgetItemListData;
 import com.jegsoftware.payperiodbudgeting.data.ItemType;
-import com.jegsoftware.payperiodbudgeting.view.IView;
+import com.jegsoftware.payperiodbudgeting.view.IListView;
 
 /**
  * Created by jonathon on 2/6/18.
@@ -14,9 +14,9 @@ import com.jegsoftware.payperiodbudgeting.view.IView;
 public class ListController {
 
     private IBudgetItemListData budgetItemData;
-    private IView view;
+    private IListView view;
 
-    public ListController(IBudgetItemListData budgetItemData, IView view, ItemType type) {
+    public ListController(IBudgetItemListData budgetItemData, IListView view, ItemType type) {
         this.budgetItemData = budgetItemData;
         this.view = view;
         view.setupListActivity(budgetItemData.getItemsByType(type));
