@@ -7,20 +7,40 @@
     android:id="@+id/root_edit_item_activity"
     tools:context="com.jegsoftware.payperiodbudgeting.view.EditItemActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tlb_edit_item"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"
+        app:navigationIcon="@drawable/ic_close_white_24dp"
+        app:title="">
+
+        <android.support.v7.widget.ActionMenuView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.ActionMenuView>
+
+    </android.support.v7.widget.Toolbar>
+
     <TextView
         android:id="@+id/lbl_item_date"
         style="@style/Text.Primary"
-        android:text="Date"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:labelFor="@+id/fld_item_date"
         android:gravity="center_vertical"
+        android:labelFor="@+id/fld_item_date"
+        android:text="Date"
         app:layout_constraintEnd_toStartOf="@+id/fld_item_date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tlb_edit_item" />
 
     <EditText
         android:id="@+id/fld_item_date"
@@ -32,8 +52,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/lbl_item_date"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1/1/2018"/>
+        app:layout_constraintTop_toBottomOf="@+id/tlb_edit_item"
+        tools:text="1/1/2018" />
 
     <TextView
         android:id="@+id/lbl_item_description"
@@ -112,6 +132,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lbl_item_account"
         app:layout_constraintTop_toBottomOf="@+id/fld_item_amount" />
-
 
 </android.support.constraint.ConstraintLayout>
