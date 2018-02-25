@@ -29,9 +29,6 @@ public class EditItemControllerTest {
     @Mock
     IEditItemView editItemView;
 
-    @Mock
-    View viewRoot;
-
     private static ItemType TEST_TYPE = ItemType.ACTUAL_EXPENSE;
 
     private static BudgetItem TEST_ITEM = new BudgetItem(
@@ -65,7 +62,7 @@ public class EditItemControllerTest {
     @Test
     public void onItemSaveClicked() {
         controller = new EditItemController(budgetItemData, editItemView, TEST_ITEM, TEST_TYPE);
-        controller.onSaveItemClick(TEST_ITEM, viewRoot);
+        controller.onSaveItemClick(TEST_ITEM);
         Mockito.verify(editItemView).sendSavedItemToList(TEST_ITEM);
     }
 

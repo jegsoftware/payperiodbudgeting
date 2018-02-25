@@ -25,7 +25,7 @@ public class EditItemController {
         editItemView.setUpItemEdit(item);
     }
 
-    public void onSaveItemClick(BudgetItem itemToSave, View viewRoot) {
+    public void onSaveItemClick(BudgetItem itemToSave) {
         budgetItemData.save(itemToSave);
         editItemView.sendSavedItemToList(itemToSave);
     }
